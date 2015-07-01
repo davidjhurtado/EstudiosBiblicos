@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    
+	<TextView
+		android:id="@+id/registrotitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Registro de usuarios" 
+		android:textSize="22sp"/>
+	
+	<TextView
+		android:id="@+id/txtVNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Completo" />
+	<EditText
+		android:id="@+id/txtNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:inputType="text"
+		android:hint="Indique su nombre completo"
+        android:text="" />+
+	
+
+	<TextView
+		android:id="@+id/txtVDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dirección" />
+	<EditText
+		android:id="@+id/txtDirreccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:inputType="text|textMultiLine"
+		android:hint="Indique su dirección"
+        android:text="" />
+	<TextView
+		android:id="@+id/txtVPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teléfono" />
+	<EditText
+		android:id="@+id/txtPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:inputType="phone"
+		android:hint="Indique de teléfono"
+        android:text="" />
+	<TextView
+		android:id="@+id/txtVEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo electrónico" />
+	<EditText
+		android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:inputType="textEmailAddress"
+		android:hint="Indique su correo electrónico"
+        android:text="" />
+	<TextView
+		android:id="@+id/txtVPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password" />
+	<EditText
+		android:id="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:inputType="textPassword"
+		android:hint="Ingrese su clave de acceso"
+        android:text="" />
+	<TextView
+		android:id="@+id/txtVRetipeePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retipee su Password" />
+	<EditText
+		android:id="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:inputType="textPassword"
+		android:hint="Vuelva a escribir su clave de acceso"
+        android:text="" />
+</LinearLayout>
