@@ -15,6 +15,7 @@ public final class R {
     }
     public static final class id {
         public static final int btnStudies=0x7f060003;
+        public static final int list=0x7f060010;
         public static final int myButton=0x7f060000;
         public static final int registrotitle=0x7f060004;
         public static final int test=0x7f060002;
@@ -43,6 +44,7 @@ public final class R {
         public static final int hello=0x7f040000;
         public static final int login=0x7f040002;
         public static final int registertitle=0x7f040005;
+        public static final int studiestitle=0x7f040006;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;
