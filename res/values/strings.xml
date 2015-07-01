@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Estudios Biblícos</string>
+    <string name="app_name">Estudios Biblícos</string>
+	<string name="login">Nombre Usuario</string>
+	<string name="btnfbloginmsg">Conectar vía facebook</string>
+	<string name="btnloginmsg">Iniciar Sesión</string>
+	<string name="registertitle">Registre sus datos aquí</string>
+	<string name="studiestitle">Estudios Disponibles</string>
+</resources>
