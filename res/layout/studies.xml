@@ -8,9 +8,10 @@
         android:text="@string/studiestitle" 
 		android:textSize="22dp"/>
 		 <ListView
-              android:id="@+id/list"
+              android:id="@+id/lstStudies"
               android:layout_height="wrap_content"
-              android:layout_width="match_parent">
+              android:layout_width="match_parent"
+             android:onClick="">
          </ListView>
     
 </LinearLayout>

@@ -47,4 +47,11 @@
 		android:onClick="onClickBtnStudies"
         android:text="Ver Estudios" 
 		/>
+    <Button
+        android:id="@+id/btnStudiesInteraction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickBtnStudiesInteraction"
+        android:text="Ver Estudio 1"
+        />
 </LinearLayout>

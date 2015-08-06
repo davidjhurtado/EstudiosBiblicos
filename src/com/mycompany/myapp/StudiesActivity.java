@@ -16,7 +16,7 @@ public class StudiesActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studies);
 		  // Get ListView object from xml
-            listView = (ListView) findViewById(R.id.list);
+            listView = (ListView) findViewById(R.id.lstStudies);
             
             // Defined Array values to show in ListView
             String[] values = new String[] { "Estudio 1", 
@@ -39,5 +39,10 @@ public class StudiesActivity extends Activity
             // Assign adapter to ListView
             listView.setAdapter(adapter); 
     }
-	
+
+   /* @Override
+    protected void onListItemClick(ListView lv, View v, int position, long id){
+        String selectedValue = (String) getListAdapter().getItem(position);
+        Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
+    }*/
 }

@@ -8,4 +8,13 @@
 	<string name="btnloginmsg">Iniciar Sesión</string>
 	<string name="registertitle">Registre sus datos aquí</string>
 	<string name="studiestitle">Estudios Disponibles</string>
+    <string name="title_activity_studies_interaction">Enseñanzas Biblicas</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="btnnextstr">Proximo Tema</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="option1">Opción 1</string>
+    <string name="option2">Opción 2</string>
+    <string name="option3">Opción 3</string>
 </resources>

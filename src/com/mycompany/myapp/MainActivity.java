@@ -55,5 +55,17 @@ public class MainActivity extends Activity
 			//System.out.println(e.toString());
 		}
 	}
-	
+
+	public void  onClickBtnStudiesInteraction (View v) {
+		TextView test;
+		Intent act = new Intent(this, StudiesInteractionActivity.class);
+
+		try{
+			startActivity(act);
+		} catch (Exception e){
+			test = (TextView) findViewById(R.id.test);
+			test.setText(e.toString());
+			//System.out.println(e.toString());
+		}
+	}
 }
