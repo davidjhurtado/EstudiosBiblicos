@@ -10,6 +10,8 @@ public class User {
     private String Telefono = "";
     private String Email = "";
 
+    public User(){}
+
     public User(int idUsusario, String Nombre, String Direccion, String Telefono, String Email){
         super();
         this.idUsusario = idUsusario;
