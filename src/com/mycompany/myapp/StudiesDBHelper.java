@@ -8,6 +8,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import  android.content.ContentValues;
+
+import java.util.LinkedList;
+import java.util.List;
+
 public class StudiesDBHelper extends SQLiteOpenHelper {
     private static final int dbVERSION = 1;
     private static final String dbNAME = "StudiesDB";
@@ -22,7 +26,7 @@ public class StudiesDBHelper extends SQLiteOpenHelper {
     private static final String[] user_COLUMNS = {user_ID, user_NAME, user_DIR, user_PHONE, user_EMAIL };
 
     public StudiesDBHelper(Context context){
-        super(context,dbNAME, null, dbVERSION);
+        super(context, dbNAME, null, dbVERSION);
     }
 
     @Override
@@ -56,9 +60,8 @@ public class StudiesDBHelper extends SQLiteOpenHelper {
     }
 
     public int updateUser(User user){
-        // get reference of the BookDB database
+        // get reference of the StudiesDB database
         SQLiteDatabase db = this.getWritableDatabase();
-
         // make values to be inserted
         ContentValues values = new ContentValues();
         values.put(user_NAME, user.getNombre()); // get Name
@@ -67,9 +70,74 @@ public class StudiesDBHelper extends SQLiteOpenHelper {
         values.put(user_EMAIL, user.getEmail()); // get Email
         // update
         int i = db.update(userTblNAME, values, user_ID + " = ?", new String[] { String.valueOf(user.getIdUsusario()) });
-
         db.close();
         return i;
+    }
+
+
+    ///////////////////////
+    public User readUser(int ID) {
+        // get reference of the BookDB database
+        SQLiteDatabase db = this.getReadableDatabase();
+        // get book query
+        Cursor cursor = db.query(userTblNAME, // a. table
+                user_COLUMNS, " idUsuario = ?", new String[] { String.valueOf(ID)}, null, null, null, null);
+        // if results !=null, parse the first one
+        if (cursor != null) cursor.moveToFirst();
+        User user = new User();
+        user.setIdUsusario(Integer.parseInt(cursor.getString(0)));
+        user.setNombre(cursor.getString(1));
+        user.setDireccion(cursor.getString(2));
+        user.setTelefono(cursor.getString(3));
+        user.setEmail(cursor.getString(3));
+        return user;
+    }
+
+    public List getAllUsers() {
+        List users = new LinkedList();
+        // select book query
+        String query = "SELECT  * FROM " + userTblNAME;
+        // get reference of the BookDB database
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        // parse all results
+
+        User user = null;
+        if (cursor.moveToFirst()) {
+
+            do {
+
+                user = new User();
+
+                user.setIdUsusario(Integer.parseInt(cursor.getString(0)));
+
+                user.setNombre(cursor.getString(1));
+
+                user.setDireccion(cursor.getString(2));
+
+
+
+                // Add book to books
+
+                users.add(user);
+
+            } while (cursor.moveToNext());
+
+        }
+
+        return users;
 
     }
+
+
+    public void deleteBook(User user) {
+        // get reference of the BookDB database
+        SQLiteDatabase db = this.getWritableDatabase();
+        // delete book
+        db.delete(userTblNAME, user_ID + " = ?", new String[]{String.valueOf(user.getIdUsusario())});
+        db.close();
+    }
+
+    ///////////////////////////
 }
