@@ -31,15 +31,17 @@ public class StudiesDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        String CREATE_BOOK_TABLE = "CREATE TABLE books ( " + "id INTEGER PRIMARY KEY AUTOINCREMENT, " + "title TEXT, " + "author TEXT )";
-        db.execSQL(CREATE_BOOK_TABLE);
+        String CREATE_USERS_TABLE = "CREATE TABLE IF NOT EXISTS " + userTblNAME +  " ( " + user_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + user_NAME + " TEXT, " + user_DIR + " TEXT, " + user_PHONE + " TEXT, " + user_EMAIL + " TEXT)";
+        db.execSQL(CREATE_USERS_TABLE);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        db.execSQL("DROP TABLE IF EXISTS " + userTblNAME);
-        this.onCreate(db);
+        if (oldVersion < 1) {
+           // db.execSQL("DROP TABLE IF EXISTS " + userTblNAME);
+            this.onCreate(db);
+        };
     }
 
     public boolean insertUser(User user){
@@ -90,6 +92,7 @@ public class StudiesDBHelper extends SQLiteOpenHelper {
         user.setDireccion(cursor.getString(2));
         user.setTelefono(cursor.getString(3));
         user.setEmail(cursor.getString(3));
+        db.close();
         return user;
     }
 
@@ -109,14 +112,9 @@ public class StudiesDBHelper extends SQLiteOpenHelper {
             do {
 
                 user = new User();
-
                 user.setIdUsusario(Integer.parseInt(cursor.getString(0)));
-
                 user.setNombre(cursor.getString(1));
-
                 user.setDireccion(cursor.getString(2));
-
-
 
                 // Add book to books
 

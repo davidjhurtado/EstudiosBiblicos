@@ -17,4 +17,19 @@
     <string name="option1">Opción 1</string>
     <string name="option2">Opción 2</string>
     <string name="option3">Opción 3</string>
+    <string name="regname">Nombre Completo</string>
+    <string name="regnametooltip">Indique su Nombre Completo</string>
+    <string name="regdir">Dirección</string>
+    <string name="regphone">Teléfono</string>
+    <string name="regmail">Correo Electrónico</string>
+    <string name="regdirtooltip">Indique su dirección</string>
+    <string name="regphonetooltip">Indique su Nro. Telefónico</string>
+    <string name="regmailtooltip">Indique su Correo Electrónico</string>
+    <string name="regbtnname">Registrar Datos</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="titlesplash">Inicializando...</string>
 </resources>

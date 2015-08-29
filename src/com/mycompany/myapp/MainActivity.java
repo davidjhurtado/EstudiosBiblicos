@@ -7,6 +7,8 @@ import android.widget.*;
 import android.content.*;
 import junit.framework.*;
 
+import java.util.List;
+
 public class MainActivity extends Activity
 {
     /** Called when the activity is first created. */
@@ -17,6 +19,20 @@ public class MainActivity extends Activity
         setContentView(R.layout.main);
 		Button myButton = (Button) findViewById(R.id.myButton);
 		Button txtvregister = (Button) findViewById(R.id.txtvRegister);
+        StudiesDBHelper db = new StudiesDBHelper(this);
+        List users = db.getAllUsers();
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        if (users.size() > 0){
+            alert.setMessage("Size list: " + String.valueOf( users.size()) );
+            alert.show();
+        } else {
+            alert.setMessage("Size Cero : " + String.valueOf( users.size()) );
+            alert.show();
+        };
+
+
+
+
     }
 	public void onClickBtnfblogin (View v) { 
 	TextView test;

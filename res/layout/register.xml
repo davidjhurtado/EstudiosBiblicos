@@ -10,81 +10,68 @@
 		android:id="@+id/registrotitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Registro de usuarios" 
+        android:text="@string/registertitle"
 		android:textSize="22sp"/>
-	
+
+
 	<TextView
 		android:id="@+id/txtVNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre Completo" />
+        android:text="@string/regname" />
 	<EditText
 		android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 		android:inputType="text"
-		android:hint="Indique su nombre completo"
-        android:text="" />+
+		android:hint="@string/regnametooltip"
+        android:text="" />
 	
 
 	<TextView
 		android:id="@+id/txtVDireccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dirección" />
+        android:text="@string/regdir" />
 	<EditText
-		android:id="@+id/txtDirreccion"
+		android:id="@+id/txtDireccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 		android:inputType="text|textMultiLine"
-		android:hint="Indique su dirección"
+		android:hint="@string/regdirtooltip"
         android:text="" />
 	<TextView
 		android:id="@+id/txtVPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Teléfono" />
+        android:text="@string/regphone" />
 	<EditText
 		android:id="@+id/txtPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 		android:inputType="phone"
-		android:hint="Indique de teléfono"
+		android:hint="@string/regphonetooltip"
         android:text="" />
 	<TextView
 		android:id="@+id/txtVEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correo electrónico" />
+        android:text="@string/regmail" />
 	<EditText
 		android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 		android:inputType="textEmailAddress"
-		android:hint="Indique su correo electrónico"
+		android:hint="@string/regmailtooltip"
         android:text="" />
-	<TextView
-		android:id="@+id/txtVPassword"
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password" />
-	<EditText
-		android:id="@+id/txtPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:inputType="textPassword"
-		android:hint="Ingrese su clave de acceso"
-        android:text="" />
-	<TextView
-		android:id="@+id/txtVRetipeePassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Retipee su Password" />
-	<EditText
-		android:id="@+id/txtPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:inputType="textPassword"
-		android:hint="Vuelva a escribir su clave de acceso"
-        android:text="" />
+        android:text="@string/regbtnname"
+        android:id="@+id/btnRegistrar"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClickBtnRegistrar"/>
+
+
 </LinearLayout>
