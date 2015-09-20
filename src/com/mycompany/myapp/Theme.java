@@ -1,8 +1,5 @@
 package com.mycompany.myapp;
-
-/**
- * Created by David on 14/09/2015.
- */
+/* David Hurtado 19/09/2015 */
 public class Theme {
     private int idStudy = 0;
     private  int idTheme = 0;

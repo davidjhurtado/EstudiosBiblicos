@@ -229,7 +229,7 @@ public boolean insertTheme(Theme theme){
     values.put(study_ID, theme.getIdStudy());
     values.put(study_TITLE, theme.getTitle());
     values.put(theme_HTMLCONTENT, theme.getHTMLContent());
-    values.put(theme_HTMLCONTENT, theme.getQuestion());
+    values.put(theme_QUESTION, theme.getQuestion());
     values.put(theme_OPTION1, theme.getOPTION1());
     values.put(theme_OPTION2, theme.getOPTION2());
     values.put(theme_OPTION3, theme.getOPTION3());
@@ -250,6 +250,7 @@ public boolean insertTheme(Theme theme){
         values.put(study_ID, theme.getIdStudy()); //
         values.put(study_TITLE, theme.getTitle());
         values.put(theme_HTMLCONTENT, theme.getHTMLContent()); //
+        values.put(theme_QUESTION, theme.getQuestion());
         values.put(theme_OPTION1, theme.getOPTION1()); //
         values.put(theme_OPTION2, theme.getOPTION2()); //
         values.put(theme_OPTION3, theme.getOPTION3()); //
@@ -273,10 +274,11 @@ public boolean insertTheme(Theme theme){
         theme.setIdStudy(Integer.parseInt(cursor.getString(1)));
         theme.setTitle(cursor.getString(2));
         theme.setHTMLContent(cursor.getString(3));
-        theme.setOPTION1(cursor.getString(4));
-        theme.setOPTION2(cursor.getString(5));
-        theme.setOPTION3(cursor.getString(6));
-        theme.setANSWER(cursor.getString(7));
+        theme.setQuestion(cursor.getString(4));
+        theme.setOPTION1(cursor.getString(5));
+        theme.setOPTION2(cursor.getString(6));
+        theme.setOPTION3(cursor.getString(7));
+        theme.setANSWER(cursor.getString(8));
         db.close();
         return theme;
     }
@@ -310,10 +312,11 @@ public boolean insertTheme(Theme theme){
                 theme.setIdStudy(Integer.parseInt(cursor.getString(1)));
                 theme.setTitle(cursor.getString(2));
                 theme.setHTMLContent(cursor.getString(3));
-                theme.setOPTION1(cursor.getString(4));
-                theme.setOPTION2(cursor.getString(5));
-                theme.setOPTION3(cursor.getString(6));
-                theme.setANSWER(cursor.getString(7));
+                theme.setQuestion(cursor.getString(4));
+                theme.setOPTION1(cursor.getString(5));
+                theme.setOPTION2(cursor.getString(6));
+                theme.setOPTION3(cursor.getString(7));
+                theme.setANSWER(cursor.getString(8));
                 // Add user to users
                 themes.add(theme);
             } while (cursor.moveToNext());

@@ -1,7 +1,7 @@
 package com.mycompany.myapp;
 
 /**
- * Created by David on 14/09/2015.
+ *  * Created by David Hurtado on 14/09/2015.
  */
 public class Study {
     private int idStudy = 0;
