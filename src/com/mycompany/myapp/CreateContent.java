@@ -27,7 +27,10 @@ public class CreateContent {
     }
     public void insertContent(Context content){
         Study study = new Study(1,"Fé de Jesús",0);
-        Theme theme = new Theme(1,1,"¿Qué Enseña la Biblia acerca de Dios?","<html><title></title><body>Efesios 4:6 Un Dios y Padre de todos, el Cual es Sobre todos y por todos, y en todos.</body></html>","","","","");
+        String title = "¿Qué Enseña la Biblia acerca de Dios?";
+        String htmlcontent = "<html><title></title><body>Efesios 4:6 Un Dios y Padre de todos, el Cual es Sobre todos y por todos, y en todos.</body></html>";
+        String question = "¿Cuántos dioses hay? Efesios 4:6";
+        Theme theme = new Theme(1,1,title,htmlcontent,question,"A) Un Solo DIOS","B) Muchos DIOSES","C) Varios DIOSES","A) Un Solo DIOS");
         StudiesDBHelper db = new StudiesDBHelper(get_context());
         db.insertStudy(study);
     }

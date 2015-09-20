@@ -229,7 +229,7 @@ public boolean insertTheme(Theme theme){
     values.put(study_ID, theme.getIdStudy());
     values.put(study_TITLE, theme.getTitle());
     values.put(theme_HTMLCONTENT, theme.getHTMLContent());
-    values.put(theme_HTMLCONTENT, theme.getQUestion());
+    values.put(theme_HTMLCONTENT, theme.getQuestion());
     values.put(theme_OPTION1, theme.getOPTION1());
     values.put(theme_OPTION2, theme.getOPTION2());
     values.put(theme_OPTION3, theme.getOPTION3());

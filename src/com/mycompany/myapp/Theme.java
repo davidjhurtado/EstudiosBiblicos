@@ -8,6 +8,7 @@ public class Theme {
     private  int idTheme = 0;
     private String Title = "";
     private String HTMLContent = "";
+    private String Question = "";
     private String OPTION1 = "";
     private String OPTION2 = "";
     private String OPTION3 = "";
@@ -36,6 +37,14 @@ public class Theme {
     public void setHTMLContent(String HTMLContent) {
         this.HTMLContent = HTMLContent;
     }
+    public String getQuestion() {
+        return Question;
+    }
+
+    public void setQuestion(String question) {
+        Question = question;
+    }
+
 
     public String getOPTION1() {
         return OPTION1;
@@ -80,11 +89,12 @@ public class Theme {
     public Theme() {
         super();
     }
-    public Theme(int idTheme, int idStudy, String Title, String HTMLContent, String OPTION1, String OPTION2, String OPTION3, String ANSWER ){
+    public Theme(int idTheme, int idStudy, String Title, String HTMLContent, String Question, String OPTION1, String OPTION2, String OPTION3, String ANSWER ){
         this.idTheme = idTheme;
         this.idStudy = idStudy;
         this.Title = Title;
         this.HTMLContent = HTMLContent;
+        this.Question = Question;
         this.OPTION1 = OPTION1;
         this.OPTION2 = OPTION2;
         this.OPTION3 = OPTION3;
