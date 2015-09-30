@@ -5,8 +5,6 @@ import android.os.*;
 import android.view.*;
 import android.widget.*;
 import android.content.*;
-import junit.framework.*;
-
 import java.util.List;
 
 public class MainActivity extends Activity
@@ -29,11 +27,8 @@ public class MainActivity extends Activity
             alert.setMessage("Size Cero : " + String.valueOf( users.size()) );
             alert.show();
         };
-
-
-
-
     }
+
 	public void onClickBtnfblogin (View v) { 
 	TextView test;
 	 Intent act = new Intent(this, RegisterActivity.class);

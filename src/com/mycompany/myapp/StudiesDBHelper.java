@@ -1,7 +1,7 @@
 package com.mycompany.myapp;
 
-/**
- * Created by David on 05/08/2015.
+/*
+ * Created by David on 05/08/2015
  */
 import android.content.Context;
 import android.database.Cursor;
@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import  android.content.ContentValues;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -193,7 +194,7 @@ public class StudiesDBHelper extends SQLiteOpenHelper {
         return study;
     }
 
-    public List getAllStudies() {
+    public List<Study> getAllStudies() {
         List studies = new LinkedList();
         // select book query
         String query = "SELECT  * FROM " + studyTblNAME;
@@ -296,7 +297,7 @@ public boolean insertTheme(Theme theme){
         db.close();
     }
 
-    public List getAllThemesByStudy(int StudyID) {
+    public List<Theme> getAllThemesByStudy(int StudyID) {
         List themes = new LinkedList();
         // select book query
         String query = "SELECT  * FROM " + studyTblNAME + " WHERE " + study_ID + " = " + String.valueOf(StudyID);
@@ -324,5 +325,16 @@ public boolean insertTheme(Theme theme){
         cursor.close();
         return themes;
     }
+   /* public List getAllStudiesTitles () {
+        List<Study> studies = getAllStudies();
+        ArrayList <String> titles = new ArrayList<String>();
+        for (Study study : studies){
 
+        }
+        for (int i = 0; i<studies.size();i++){
+            String st = studies.get(i).getTitle():
+
+        }
+
+    }*/
 }

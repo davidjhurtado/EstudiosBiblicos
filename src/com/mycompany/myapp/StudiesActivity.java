@@ -1,12 +1,17 @@
 package com.mycompany.myapp;
 
 import android.app.*;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.*;
 import android.view.View;
 import android.widget.*;
 
-public class StudiesActivity extends Activity
+import java.util.ArrayList;
+import android.app.ListActivity;
+import java.util.List;
+
+public  class StudiesActivity extends Activity
 {
 	 ListView listView ;
 	 @Override
@@ -16,35 +21,26 @@ public class StudiesActivity extends Activity
         setContentView(R.layout.studies);
 		// Get ListView object from xml
         listView = (ListView) findViewById(R.id.lstStudies);
-        // Defined Array values to show in ListView
-        String[] values = new String[] { "Estudio 1",
-                                             "Estudio 2",
-                                             "Estudio 3",
-                                             "Estudio 4",
-                                             "Estudio 5"
-                                            };
-
-	 // Define a new Adapter
-            // First parameter - Context
-            // Second parameter - Layout for the row
-            // Third parameter - ID of the TextView to which the data is written
-            // Forth - the Array of data
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.studiesitem, values);
+        StudiesDBHelper db = new StudiesDBHelper(StudiesActivity.this);
+        List<Study> studies = db.getAllStudies();
+        List<String> listTitle = new ArrayList();
+        for (int index =0; index < studies.size(); index++){
+            listTitle.add(index,studies.get(index).getTitle());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.studiesitem, listTitle);
         // Assign adapter to ListView
         listView.setAdapter(adapter);
-
-
+        db.close();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Item " + listView.getItemAtPosition(position), Toast.LENGTH_LONG).show();
                 Intent activity = new Intent(StudiesActivity.this, StudiesInteractionActivity.class);
+                activity.putExtra("id", position);
                 startActivity(activity);
 
             }
         });
-
     }
 
 }

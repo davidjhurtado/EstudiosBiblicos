@@ -8,7 +8,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
-
 public class SplashActivity extends Activity {
     public static final int segundos = 8;
     public static final int milisegundos = segundos * 1000;
@@ -56,5 +55,7 @@ public class SplashActivity extends Activity {
     private void createDatabase(){
         StudiesDBHelper db = new StudiesDBHelper(SplashActivity.this);
         db.onUpgrade(db.getWritableDatabase(), 0,1);
+        CreateContent content = new  CreateContent();
+        content.insertContent(SplashActivity.this);
     }
 }

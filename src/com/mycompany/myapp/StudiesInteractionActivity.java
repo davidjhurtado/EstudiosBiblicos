@@ -14,17 +14,36 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudiesInteractionActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studiesinteraction);
+        int idStudy = 0;
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (savedInstanceState == null) {
+            if (bundle != null) {
+                //idStudy = Integer.parseInt(bundle.getString("id"));
+            }
+        } else {
+            String stridStudy = (String)savedInstanceState.getSerializable("id");
+            //idStudy = Integer.parseInt(stridStudy);
+        }
         WebView wbwStudie  = (WebView) findViewById(R.id.wvwStudiesInteraction);
+        StudiesDBHelper db = new StudiesDBHelper(StudiesInteractionActivity.this);
         wbwStudie.getSettings().setJavaScriptEnabled(true);
-        String html_data = "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"><title>Lorem Ipsum</title></head><body style=\"width:300px; color: #00000; \"><p><strong> About us</strong> </p><p><strong> Lorem Ipsum</strong> is simply dummy text .</p><p><strong> Lorem Ipsum</strong> is simply dummy text </p><p><strong> Lorem Ipsum</strong> is simply dummy text </p></body></html>";
+        List<Theme> themes = db.getAllThemesByStudy(idStudy);
+        String html_data = "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"><title>Lorem Ipsum</title></head><body style=\"width:300px; color: #00000; \"><p><strong> About us</strong> </p><p><strong> ID STUDY:" + Integer.toString(idStudy) + "</strong> is simply dummy text .</p><p><strong> Lorem Ipsum</strong> is simply dummy text </p><p><strong> Lorem Ipsum</strong> is simply dummy text </p></body></html>";
+        for (int i = 0; i< themes.size(); i++){
+            html_data = themes.get(i).getHTMLContent();
+        }
         wbwStudie.loadData(html_data,"text/html", "UTF-8");
-
+        db.close();
     }
 
     @Override
@@ -51,8 +70,13 @@ public class StudiesInteractionActivity extends Activity {
 
     public void onClickBtnNextStr (View v){
         try {
-            Intent act = new Intent(this, TestActivity.class);
-            startActivity(act);
+            StudiesDBHelper dbstudy = new StudiesDBHelper(StudiesInteractionActivity.this);
+            List<Theme>themes  = dbstudy.getAllThemesByStudy(1);
+            WebView wbwStudie  = (WebView) findViewById(R.id.wvwStudiesInteraction);
+            wbwStudie.loadData(themes.get(1).getHTMLContent(),"text/html", "UTF-8");
+            dbstudy.close();
+            //Intent act = new Intent(this, TestActivity.class);
+            //startActivity(act);
         } catch (Exception e) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setMessage("Error: " + e.getMessage() );

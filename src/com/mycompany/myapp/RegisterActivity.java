@@ -4,14 +4,10 @@ import android.app.*;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.*;
-//import android.view.*;
-
 import android.view.View;
 import android.widget.*;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-//import android.content.*;
 
 public class RegisterActivity extends Activity
 {
