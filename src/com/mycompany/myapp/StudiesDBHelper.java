@@ -193,7 +193,21 @@ public class StudiesDBHelper extends SQLiteOpenHelper {
         db.close();
         return study;
     }
-
+    public Study readStudyByTitlte(String Title) {
+        // get reference of the BookDB database
+        SQLiteDatabase db = this.getReadableDatabase();
+        // get book query
+        Cursor cursor = db.query(studyTblNAME, // a. table
+                study_COLUMNS, study_TITLE + " = ?", new String[] { Title}, null, null, null, null);
+        // if results !=null, parse the first one
+        if (cursor != null) cursor.moveToFirst();
+        Study study = new Study();
+        study.setIdStudy(Integer.parseInt(cursor.getString(0)));
+        study.setTitle(cursor.getString(1));
+        study.setPercent(Double.parseDouble(cursor.getString(2)));
+        db.close();
+        return study;
+    }
     public List<Study> getAllStudies() {
         List studies = new LinkedList();
         // select book query
@@ -300,7 +314,7 @@ public boolean insertTheme(Theme theme){
     public List<Theme> getAllThemesByStudy(int StudyID) {
         List themes = new LinkedList();
         // select book query
-        String query = "SELECT " + theme_ID + ", " + study_ID + ", " + theme_TITLE + ", " + theme_HTMLCONTENT + ", " + theme_QUESTION + ", "+ theme_OPTION1 + ", " + theme_OPTION2 + ", " + theme_OPTION3 + ", " + theme_ANSWER + "  FROM " + themeTblNAME + " WHERE " + study_ID + " = " + String.valueOf(StudyID);
+        String query = "SELECT " + theme_ID + ", " + study_ID + ", " + theme_TITLE + ", " + theme_HTMLCONTENT + ", " + theme_QUESTION + ", "+ theme_OPTION1 + ", " + theme_OPTION2 + ", " + theme_OPTION3 + ", " + theme_ANSWER + "  FROM " + themeTblNAME + " WHERE " + study_ID + " = " + String.valueOf(StudyID) + " ORDER BY " + theme_ID;
         // get reference of the UserDB database
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
