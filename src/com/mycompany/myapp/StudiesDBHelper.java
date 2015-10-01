@@ -300,7 +300,7 @@ public boolean insertTheme(Theme theme){
     public List<Theme> getAllThemesByStudy(int StudyID) {
         List themes = new LinkedList();
         // select book query
-        String query = "SELECT  * FROM " + studyTblNAME + " WHERE " + study_ID + " = " + String.valueOf(StudyID);
+        String query = "SELECT " + theme_ID + ", " + study_ID + ", " + theme_TITLE + ", " + theme_HTMLCONTENT + ", " + theme_QUESTION + ", "+ theme_OPTION1 + ", " + theme_OPTION2 + ", " + theme_OPTION3 + ", " + theme_ANSWER + "  FROM " + themeTblNAME + " WHERE " + study_ID + " = " + String.valueOf(StudyID);
         // get reference of the UserDB database
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
