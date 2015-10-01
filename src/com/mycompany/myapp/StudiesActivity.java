@@ -30,17 +30,20 @@ public  class StudiesActivity extends Activity
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.studiesitem, listTitle);
         // Assign adapter to ListView
         listView.setAdapter(adapter);
-        db.close();
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Item " + listView.getItemAtPosition(position), Toast.LENGTH_LONG).show();
+                StudiesDBHelper db = new StudiesDBHelper(StudiesActivity.this);
+                Study study = db.readStudyByTitlte(listView.getItemAtPosition(position).toString());
                 Intent activity = new Intent(StudiesActivity.this, StudiesInteractionActivity.class);
-                activity.putExtra("id", position);
+                activity.putExtra("id",String.valueOf(study.getIdStudy()));
                 startActivity(activity);
 
             }
         });
+        db.close();
     }
 
 }
