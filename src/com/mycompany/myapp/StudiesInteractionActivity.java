@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudiesInteractionActivity extends Activity {
-
+    int themePosition = 0;
+    List<Study> themes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +29,11 @@ public class StudiesInteractionActivity extends Activity {
         Bundle bundle = intent.getExtras();
         if (savedInstanceState == null) {
             if (bundle != null) {
-                //idStudy = Integer.parseInt(bundle.getString("id"));
+                idStudy = Integer.parseInt(bundle.getString("id"));
             }
         } else {
             String stridStudy = (String)savedInstanceState.getSerializable("id");
-            //idStudy = Integer.parseInt(stridStudy);
+            idStudy = Integer.parseInt(stridStudy);
         }
         WebView wbwStudie  = (WebView) findViewById(R.id.wvwStudiesInteraction);
         StudiesDBHelper db = new StudiesDBHelper(StudiesInteractionActivity.this);
