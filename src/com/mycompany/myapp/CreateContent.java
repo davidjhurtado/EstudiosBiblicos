@@ -14,7 +14,7 @@ public class CreateContent {
         String title = "¿Qué Enseña la Biblia acerca de Dios?";
         String htmlcontent = "<html><title></title><body><p><b>Efesios 4:6</b> Un <b>Dios<7b> y Padre de todos, el Cual es Sobre todos y por todos, y en todos.<p></body></html>";
         String question = "¿Cuántos dioses hay? Efesios 4:6";
-        Theme theme = new Theme(1,1,title,htmlcontent,question,"A) Un Solo DIOS","B) Muchos DIOSES","C) Varios DIOSES","A) Un Solo DIOS");
+        Theme theme = new Theme(1,1,title,htmlcontent,question,"A) Un Solo DIOS","B) Muchos DIOSES","C) Varios DIOSES","1");
         StudiesDBHelper db = new StudiesDBHelper(context);
         db.insertStudy(study);
         db.insertTheme(theme);
@@ -27,7 +27,7 @@ public class CreateContent {
         theme.setOPTION1("A) CARNE");
         theme.setOPTION2("B) ESPIRITU");
         theme.setOPTION3("C) CIENCIA");
-        theme.setANSWER("B) ESPIRITU");
+        theme.setANSWER("2");
         db.insertTheme(theme);
         study.setPercent(0);
         study.setTitle("Hogar Felíz");
@@ -44,9 +44,9 @@ public class CreateContent {
                 "los rasgos fundamentales de la\n" +
                 "personalidad");
         theme.setOPTION1("A) A veces");
-        theme.setOPTION1("B) Siempre");
-        theme.setOPTION1("C) Nunca");
-        theme.setANSWER("B) Siempre");
+        theme.setOPTION2("B) Siempre");
+        theme.setOPTION3("C) Nunca");
+        theme.setANSWER("2");
         db.insertTheme(theme);
     }
 
