@@ -32,6 +32,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="titlesplash">Inicializando...</string>
+    <string name="test">Test</string>
     <string name="html_lesson1">
         <![CDATA[
         <div>
