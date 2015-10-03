@@ -26,5 +26,12 @@
             android:layout_height="wrap_content"
             android:text="@string/option2"
             android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/rdoOption3"
+            android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 </RelativeLayout>
