@@ -339,16 +339,4 @@ public boolean insertTheme(Theme theme){
         cursor.close();
         return themes;
     }
-   /* public List getAllStudiesTitles () {
-        List<Study> studies = getAllStudies();
-        ArrayList <String> titles = new ArrayList<String>();
-        for (Study study : studies){
-
-        }
-        for (int i = 0; i<studies.size();i++){
-            String st = studies.get(i).getTitle():
-
-        }
-
-    }*/
 }

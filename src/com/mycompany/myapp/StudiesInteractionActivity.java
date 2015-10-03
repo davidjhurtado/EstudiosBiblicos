@@ -19,12 +19,23 @@ import java.util.List;
 
 public class StudiesInteractionActivity extends Activity {
     int themePosition = 0;
-    List<Study> themes;
+    int MaxStudiesItem = 0;
+    int idStudy = 0;
+    int idTheme = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studiesinteraction);
-        int idStudy = 0;
+        initValues(savedInstanceState);
+        WebView wbwStudie  = (WebView) findViewById(R.id.wvwStudiesInteraction);
+        wbwStudie.getSettings().setJavaScriptEnabled(true);
+        String html_data = getNextHTMLContent();
+        if (html_data.length() == 0) {
+            html_data = "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"><title>Lorem Ipsum</title></head><body style=\"width:300px; color: #00000; \"><p><strong> About us</strong> </p><p><strong> ID STUDY:" + Integer.toString(idStudy) + "</strong> is simply dummy text .</p><p><strong> Lorem Ipsum</strong> is simply dummy text </p><p><strong> Lorem Ipsum</strong> is simply dummy text </p></body></html>";
+        }
+        wbwStudie.loadData(html_data, "text/html", "UTF-8");
+    }
+    private void initValues(Bundle savedInstanceState){
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if (savedInstanceState == null) {
@@ -35,18 +46,22 @@ public class StudiesInteractionActivity extends Activity {
             String stridStudy = (String)savedInstanceState.getSerializable("id");
             idStudy = Integer.parseInt(stridStudy);
         }
-        WebView wbwStudie  = (WebView) findViewById(R.id.wvwStudiesInteraction);
-        StudiesDBHelper db = new StudiesDBHelper(StudiesInteractionActivity.this);
-        wbwStudie.getSettings().setJavaScriptEnabled(true);
-        List<Theme> themes = db.getAllThemesByStudy(idStudy);
-        String html_data = "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"><title>Lorem Ipsum</title></head><body style=\"width:300px; color: #00000; \"><p><strong> About us</strong> </p><p><strong> ID STUDY:" + Integer.toString(idStudy) + "</strong> is simply dummy text .</p><p><strong> Lorem Ipsum</strong> is simply dummy text </p><p><strong> Lorem Ipsum</strong> is simply dummy text </p></body></html>";
-        for (int i = 0; i< themes.size(); i++){
-            html_data = themes.get(i).getHTMLContent();
-        }
-        wbwStudie.loadData(html_data,"text/html", "UTF-8");
-        db.close();
     }
-
+    private String getNextHTMLContent() {
+        String HTMLContent ="";
+        StudiesDBHelper db = new StudiesDBHelper(StudiesInteractionActivity.this);
+        List<Theme> themes = db.getAllThemesByStudy(idStudy);
+        if (MaxStudiesItem == 0) {
+            MaxStudiesItem = themes.size();
+        }
+        if ((themePosition <= MaxStudiesItem-1) && (themes.size() > 0) ){
+            idTheme = themes.get(themePosition).getIdTheme();
+            HTMLContent = themes.get(themePosition).getHTMLContent();
+            themePosition++;
+        }
+        db.close();
+        return HTMLContent;
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -71,13 +86,22 @@ public class StudiesInteractionActivity extends Activity {
 
     public void onClickBtnNextStr (View v){
         try {
-            StudiesDBHelper dbstudy = new StudiesDBHelper(StudiesInteractionActivity.this);
-            List<Theme>themes  = dbstudy.getAllThemesByStudy(1);
             WebView wbwStudie  = (WebView) findViewById(R.id.wvwStudiesInteraction);
-            wbwStudie.loadData(themes.get(1).getHTMLContent(),"text/html", "UTF-8");
-            dbstudy.close();
+            wbwStudie.loadData(getNextHTMLContent(),"text/html", "UTF-8");
             //Intent act = new Intent(this, TestActivity.class);
             //startActivity(act);
+        } catch (Exception e) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setMessage("Error: " + e.getMessage() );
+            alert.show();
+        }
+    }
+
+    public void onClickBtnTest (View v){
+        try {
+            Intent testactivity = new Intent(this, TestActivity.class);
+            testactivity.putExtra("idTheme", String.valueOf(idTheme));
+            startActivity(testactivity);
         } catch (Exception e) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setMessage("Error: " + e.getMessage() );

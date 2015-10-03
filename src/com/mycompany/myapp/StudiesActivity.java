@@ -39,6 +39,7 @@ public  class StudiesActivity extends Activity
                 Study study = db.readStudyByTitlte(listView.getItemAtPosition(position).toString());
                 Intent activity = new Intent(StudiesActivity.this, StudiesInteractionActivity.class);
                 activity.putExtra("id",String.valueOf(study.getIdStudy()));
+                db.close();
                 startActivity(activity);
 
             }
