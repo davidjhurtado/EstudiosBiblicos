@@ -53,6 +53,7 @@ public class TestActivity extends Activity {
                 if (checked){
                     if (strAnswer.contains("1")) {
                         alert.setMessage("Correcto!!");
+                        alert.setIcon(R.drawable.ic_info_black_18dp);
                         alert.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                             // aquí puedes añadir funciones
