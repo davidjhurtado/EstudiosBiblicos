@@ -2,6 +2,7 @@ package com.mycompany.myapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -52,6 +53,11 @@ public class TestActivity extends Activity {
                 if (checked){
                     if (strAnswer.contains("1")) {
                         alert.setMessage("Correcto!!");
+                        alert.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            // aquí puedes añadir funciones
+                            }
+                        });
                         alert.show();
                     } else {
                         alert.setMessage("InCorrecto!!");
