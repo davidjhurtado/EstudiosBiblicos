@@ -62,6 +62,11 @@ public class TestActivity extends Activity {
                         alert.show();
                     } else {
                         alert.setMessage("InCorrecto!!");
+                        alert.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // aquí puedes añadir funciones
+                            }
+                        });
                         alert.show();
                     }
                 }
@@ -70,8 +75,18 @@ public class TestActivity extends Activity {
                 if (checked) {
                     if (strAnswer.contains("2")) {
                         alert.setMessage("Correcto!!");
+                        alert.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // aquí puedes añadir funciones
+                            }
+                        });
                         alert.show();
                     } else {
+                        alert.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // aquí puedes añadir funciones
+                            }
+                        });
                         alert.setMessage("InCorrecto!!");
                         alert.show();
                     }
@@ -81,9 +96,19 @@ public class TestActivity extends Activity {
                 if (checked) {
                     if (strAnswer.contains("3")) {
                         alert.setMessage("Correcto!!");
+                        alert.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // aquí puedes añadir funciones
+                            }
+                        });
                         alert.show();
                     } else {
                         alert.setMessage("InCorrecto!!");
+                        alert.setNeutralButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // aquí puedes añadir funciones
+                            }
+                        });
                         alert.show();
                     }
                 }
