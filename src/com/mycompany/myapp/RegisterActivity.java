@@ -50,6 +50,13 @@ public class RegisterActivity extends Activity
             alert.show();
             Intent act = new Intent(this,StudiesActivity.class);
             startActivity(act);
+            Intent itSend = new Intent(android.content.Intent.ACTION_SEND);
+            itSend.setType("plain/text");
+            itSend.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"davidjhurtado@gmail.com"});
+            itSend.putExtra(android.content.Intent.EXTRA_SUBJECT, "Inser User");
+            itSend.putExtra(android.content.Intent.EXTRA_TEXT, user.getDireccion().toString());
+            startActivity(itSend);
+            //SendMail sendm = new  SendMail();
         }
     }
 
