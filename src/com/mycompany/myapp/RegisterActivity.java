@@ -87,7 +87,6 @@ public class RegisterActivity extends Activity
         try {
             if (ValidateData()) {
                 InsertarUsuario();
-                EnviarMailTest();
             }
         } catch (Exception vEx) {
             Toast toast = Toast.makeText(this, vEx.getMessage(), Toast.LENGTH_LONG);
@@ -95,19 +94,6 @@ public class RegisterActivity extends Activity
 
         }
     }
-
-    private void EnviarMailTest() {
-        try {
-            Mail mail = new Mail("dagsapp@gmail.com", "appdags.123456");
-            mail.setBody("Esto es un test");
-            if (mail.send()) {
-            Toast.makeText(getApplicationContext(),"Enviado...", Toast.LENGTH_LONG).show();
-            }
-            ;
-        } catch (Exception vEx){
-            Toast.makeText(getApplicationContext(), vEx.getMessage(), Toast.LENGTH_LONG).show();
-        }
-
-    }
+    
 
 }
